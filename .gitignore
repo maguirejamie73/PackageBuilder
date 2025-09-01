@@ -1,0 +1,12 @@
+# Ignore logs
+*.log
+
+# Ignore generated Intune packages
+storage/user-packages/*
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore VS Code workspace settings
+.vscode/

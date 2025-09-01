@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Printer Selection</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h2>Select Printers & Drivers</h2>
+
+  <form id="printerForm">
+    <label for="printer">Choose Printer:</label>
+    <select id="printer" name="printer" required>
+      <option value="">-- Select Printer --</option>
+      <!-- Example preloaded printers -->
+      <option value="HP-LaserJet-4200">HP LaserJet 4200</option>
+      <option value="Canon-MF644Cdw">Canon MF644Cdw</option>
+      <option value="Brother-HL-L2390DW">Brother HL-L2390DW</option>
+    </select>
+    <br><br>
+
+    <label for="driver">Choose Driver:</label>
+    <select id="driver" name="driver" required>
+      <option value="">-- Select Driver --</option>
+      <!-- Example preloaded drivers -->
+      <option value="HP-Universal-Print-Driver">HP Universal Print Driver</option>
+      <option value="Canon-Generic-Driver">Canon Generic Driver</option>
+      <option value="Brother-Driver-v3.2">Brother Driver v3.2</option>
+    </select>
+    <br><br>
+
+    <button type="submit">Download Script</button>
+  </form>
+
+  <script src="scripts/printer-selection.js"></script>
+</body>
+</html>

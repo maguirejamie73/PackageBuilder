@@ -1,0 +1,6 @@
+{
+    "Settings": [
+        { "Name": "Enable Remote Desktop", "Script": "Enable-RDP.ps1" },
+        { "Name": "Add Local Admin", "Script": "Add-LocalAdmin.ps1" }
+    ]
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>App Selection</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h2>Select Apps</h2>
+
+  <form id="appForm">
+    <label for="apps">Choose Apps:</label>
+    <select id="apps" name="apps" multiple required>
+      <!-- Example preloaded apps -->
+      <option value="GoogleChrome">Google Chrome</option>
+      <option value="MicrosoftEdge">Microsoft Edge</option>
+      <option value="Zoom">Zoom</option>
+      <option value="AdobeReader">Adobe Reader</option>
+    </select>
+    <p><small>Hold CTRL (Windows) or CMD (Mac) to select multiple.</small></p>
+    <br><br>
+
+    <button type="submit">Download Script</button>
+  </form>
+
+  <script src="scripts/app-selection.js"></script>
+</body>
+</html>

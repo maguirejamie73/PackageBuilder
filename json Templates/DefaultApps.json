@@ -1,0 +1,6 @@
+{
+    "Apps": [
+        { "Name": "Google Chrome", "Path": "chrome_installer.exe" },
+        { "Name": "Microsoft Office", "Path": "office_installer.exe" }
+    ]
+}

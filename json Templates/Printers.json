@@ -1,0 +1,7 @@
+{
+    "DriverName": "Konica Minolta C759SeriesPCL",
+    "Printers": [
+        { "Name": "MC35-Main Office Copier", "Port": "10.34.4.206" },
+        { "Name": "MC35-2nd Floor 2102", "Port": "10.34.4.119" }
+    ]
+}
