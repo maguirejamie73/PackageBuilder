@@ -3,13 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PackageBuilder Home</title>
-  </head>
-<body>
-  <h1>Welcome to PackageBuilder</h1>
-  <p><a href="login.html">Login to continue</a></p>
+  <title>PackageBuilder Login</title>
 
-  <!-- Optional JS -->
-  <script src="scripts/index.js"></script>
+  <!-- Disable caching -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+</head>
+<body>
+  <h1>Login</h1>
+  <form id="loginForm">
+    <div>
+      <label for="username">Username</label>
+      <input type="text" id="username" required />
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input type="password" id="password" required />
+    </div>
+    <button type="submit">Login</button>
+  </form>
+
+  <!-- Load login.js -->
+  <script src="scripts/login.js"></script>
 </body>
 </html>
