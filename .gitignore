@@ -1,8 +1,9 @@
 # Ignore logs
 *.log
 
-# Ignore generated Intune packages
+# Ignore generated Intune packages in user-packages, but keep the folder itself
 storage/user-packages/*
+!storage/user-packages/.gitkeep
 
 # Ignore OS files
 .DS_Store

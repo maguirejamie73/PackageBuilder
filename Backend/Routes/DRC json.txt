@@ -1,0 +1,4 @@
+{"url":"https://cdn-app-prod.drcedirect.com/drc-insight-chromeos-ui/index.html","default_launch_container":"window","create_desktop_shortcut":true,"fallback_app_name":"DRC INSIGHT"}
+
+DRC WepApp Portal URL
+https://cdn-app-prod.drcedirect.com/drc-insight-chromeos-ui/index.html
