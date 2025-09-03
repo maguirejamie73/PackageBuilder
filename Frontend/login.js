@@ -1,3 +1,5 @@
+const API_BASE_URL = "https://packagebuilder-backend-dd8kv.ondigitalocean.app";
+
 document.getElementById("loginForm").addEventListener("submit", async (e) => {
     e.preventDefault();
     const username = document.getElementById("username").value;
