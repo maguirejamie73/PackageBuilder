@@ -1,38 +1,36 @@
-document.getElementById("printerForm").addEventListener("submit", async function (e) {
-  e.preventDefault();
-
-  const printer = document.getElementById("printer").value;
-  const driver = document.getElementById("driver").value;
-
-  if (!printer || !driver) {
-    alert("Please select both a printer and a driver.");
-    return;
-  }
-
-  try {
-    const response = await fetch("/api/generate/printer", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ printer, driver })
-    });
-
-    if (!response.ok) {
-      throw new Error("Failed to generate printer package");
+async function loadPrinters() {
+    try {
+        const res = await fetch(`${API_BASE_URL}/api/get-printers`);
+        const printers = await res.json();
+        const select = document.getElementById("printerSelect");
+        printers.forEach(p => {
+            const option = document.createElement("option");
+            option.value = p.id;
+            option.textContent = p.name;
+            select.appendChild(option);
+        });
+    } catch (err) {
+        console.error("Failed to load printers", err);
     }
+}
 
-    // Convert response to blob and trigger download
-    const blob = await response.blob();
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `${printer}-package.zip`;  // file name for download
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    window.URL.revokeObjectURL(url);
-
-  } catch (err) {
-    console.error(err);
-    alert("Error: Unable to generate printer package.");
-  }
+document.getElementById("generateBtn").addEventListener("click", async () => {
+    const printerId = document.getElementById("printerSelect").value;
+    try {
+        const res = await fetch(`${API_BASE_URL}/api/generate-printer`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ printerId })
+        });
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `PrinterScript_${printerId}.ps1`;
+        a.click();
+    } catch (err) {
+        console.error(err);
+    }
 });
+
+loadPrinters();

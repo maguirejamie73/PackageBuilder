@@ -1,30 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Admin Tasks</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <title>Admin Tasks</title>
+    <script src="scripts/config.js"></script>
+    <script src="scripts/admin-tasks-selection.js"></script>
 </head>
 <body>
-  <h2>Select Admin Tasks</h2>
-
-  <form id="adminForm">
-    <label>
-      <input type="checkbox" name="task" value="Add-LocalAdmin"> Add Local Admin
-    </label><br>
-    <label>
-      <input type="checkbox" name="task" value="Enable-RDP"> Enable RDP
-    </label><br>
-    <label>
-      <input type="checkbox" name="task" value="Set-DNS"> Set Custom DNS
-    </label><br>
-    <label>
-      <input type="checkbox" name="task" value="Rename-PC"> Rename PC
-    </label><br><br>
-
-    <button type="submit">Download Script</button>
-  </form>
-
-  <script src="scripts/admin-tasks-selection.js"></script>
+    <h2>Admin Tasks</h2>
+    <select id="taskSelect"></select>
+    <input type="text" id="targetName" placeholder="Enter Username or Device" />
+    <button id="generateBtn">Generate Script</button>
 </body>
 </html>

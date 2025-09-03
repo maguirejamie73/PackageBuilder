@@ -1,34 +1,32 @@
-document.getElementById("settingsForm").addEventListener("submit", async function (e) {
-  e.preventDefault();
+async function loadSettings() {
+    try {
+        const res = await fetch(`${API_BASE_URL}/api/get-settings`);
+        const tasks = await res.json();
+        const select = document.getElementById("settingsSelect");
+        tasks.forEach(t => {
+            const option = document.createElement("option");
+            option.value = t.id;
+            option.textContent = t.name;
+            select.appendChild(option);
+        });
+    } catch (err) { console.error(err); }
+}
 
-  const selected = Array.from(document.querySelectorAll("input[name='setting']:checked")).map(cb => cb.value);
-
-  if (selected.length === 0) {
-    alert("Please select at least one setting.");
-    return;
-  }
-
-  try {
-    const response = await fetch("/api/generate/settings", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ settings: selected })
-    });
-
-    if (!response.ok) throw new Error("Failed to generate settings package");
-
-    const blob = await response.blob();
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `settings-package.zip`;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    window.URL.revokeObjectURL(url);
-
-  } catch (err) {
-    console.error(err);
-    alert("Error: Unable to generate settings package.");
-  }
+document.getElementById("generateBtn").addEventListener("click", async () => {
+    const taskId = document.getElementById("settingsSelect").value;
+    try {
+        const res = await fetch(`${API_BASE_URL}/api/generate-settings`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ taskId })
+        });
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `Settings_${taskId}.ps1`;
+        a.click();
+    } catch (err) { console.error(err); }
 });
+
+loadSettings();
