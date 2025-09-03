@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>PackageBuilder Site Selection</title>
-    <script src="scripts/config.js"></script>
-    <script src="scripts/site-selection.js"></script>
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Site Selection</title>
+  </head>
 <body>
-    <h2>Select Deployment Type</h2>
-    <select id="deploymentType">
-        <option value="powershell">Local PowerShell</option>
-        <option value="intune">Intune Package</option>
+  <h1>Select Site</h1>
+  <form id="siteSelectionForm">
+    <label for="site">Choose your site:</label>
+    <select id="site" name="site">
+      <option value="">--Select--</option>
+      <option value="site1">Site 1</option>
+      <option value="site2">Site 2</option>
     </select>
-    <button id="nextBtn">Next</button>
+    <button type="submit">Next</button>
+  </form>
+
+  <script src="scripts/site-selection.js"></script>
 </body>
 </html>
